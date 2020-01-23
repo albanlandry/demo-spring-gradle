@@ -8,6 +8,6 @@ public class UserController {
 	
 	@RequestMapping("/")
 	public String defaultAction() {
-		return "userForm";
+		return "form";
 	}
 }
