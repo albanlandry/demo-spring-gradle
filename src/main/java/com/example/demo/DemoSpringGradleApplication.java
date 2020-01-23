@@ -1,25 +1,29 @@
 package com.example.demo;
 
-import java.util.Arrays;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DemoSpringGradleApplication {
+public class DemoSpringGradleApplication extends SpringBootServletInitializer{
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(DemoSpringGradleApplication.class);
+	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoSpringGradleApplication.class, args);
 	}
 	
+	/*
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
 			System.out.println("Let's inspect the beans provided by Spring Boot:");
+			// ctx.getEnvironment().getDefaultProfiles()
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);
@@ -29,5 +33,6 @@ public class DemoSpringGradleApplication {
 
 		};
 	}
+	*/
 
 }
